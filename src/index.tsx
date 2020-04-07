@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './assets/.generated.main.css';
+import App from './views/App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import rootStore from './stores/rootStore';
+import { initialize } from './stores/game/GameAction';
+
+
+initialize()(rootStore.dispatch, rootStore.getState, null)
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={rootStore}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
