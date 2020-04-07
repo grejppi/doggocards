@@ -5,7 +5,7 @@ import ScoreCard from './scorecard/ScoreCard';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App fixed top-0 w-full">
       <Board />
       <ScoreCard />
     </div>
