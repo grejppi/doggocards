@@ -27,7 +27,7 @@ const renderDoggo = (src: CardSource, index: number, game: GameState) => {
 
   const tries = `${nTries} ${nTries === 1 ? 'try' : ('tries in ' + time)}`
 
-  return <div className="flex flex-row py-1" key={src.name}>
+  return <div className={"flex flex-row " + (index !== 0 ? "pt-1" : "")} key={`${index}:${src.name}`}>
     <div className="w-16 h-16">
       <div className="p-1 w-full h-full">
         <div
@@ -52,7 +52,7 @@ const ScoreCard = (props: any) => {
 
   return <>{game.finished() &&
     <div className="fixed w-screen h-screen top-0 flex flex-col items-center justify-center">
-      <div className="m-auto bg-white border-gray-200 border rounded-lg shadow-lg p-6">
+      <div className="m-auto bg-white border-gray-200 border rounded-lg shadow-lg p-2">
         <div className="flex flex-col">
           {game.cardSources.map((src, index) => renderDoggo(src, index, game))}
         </div>
