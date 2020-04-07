@@ -5,7 +5,7 @@ import ScoreCard from './scorecard/ScoreCard';
 
 function App() {
   return (
-    <div className="App fixed top-0 w-full flex flex-col h-full">
+    <div className="App w-full flex flex-col h-screen">
       <Board />
       <ScoreCard />
       <div className="flex-grow"></div>

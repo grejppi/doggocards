@@ -50,8 +50,8 @@ const renderDoggo = (src: CardSource, index: number, game: GameState) => {
 const ScoreCard = (props: any) => {
   const game: GameState = props.game
 
-  return <>{game.finished() &&
-    <div className="fixed w-screen max-h-screen top-0 flex flex-col items-center justify-center">
+  return <>{!game.finished() &&
+    <div className="absolute w-screen top-0 flex flex-col items-center justify-center">
       <div className="mx-auto mt-2 bg-white border-gray-200 border rounded-lg shadow-lg p-2">
         <div className="flex flex-col">
           {game.cardSources.map((src, index) => renderDoggo(src, index, game))}

@@ -39,26 +39,28 @@ const Board = (props: any) => {
     console.log(game.turnsWithRelativeTimestamps())
   }
 
-  return <div className="flex flex-row flex-wrap mx-auto  w-4x24 h-4x24  sm:w-4x32 sm:h-4x32  lg:w-4x48 lg:h-4x48">
-    {game.cards.map((card: Card, index: number) =>
-      <div className="p-2  w-24 h-24  sm:w-32 sm:h-32  lg:w-48 lg:h-48" key={`${index}:${card.sourceIndex}`}>
-        <div
-          className="rounded shadow-md w-full h-full"
-        >
-          <div className="w-full h-full rounded shadow-inner"
-            style={style(card.state, game.cardSources[card.sourceIndex].url)}
-            onClick={
-              () => {
-                if (card.state !== CardState.Removed) {
-                  game.state.type === 'Idle' ? props.beginGuess(index) : props.endGuess(index)
+  return <div className="fixed w-screen h-screen">
+    <div className="flex flex-row flex-wrap mx-auto  w-screen h-screen-w  sm:w-4x32 sm:h-4x32  lg:w-4x48 lg:h-4x48">
+      {game.cards.map((card: Card, index: number) =>
+        <div className="p-screen-relative sm:p-2  w-screen-quarter h-screen-w-quarter  sm:w-32 sm:h-32  lg:w-48 lg:h-48" key={`${index}:${card.sourceIndex}`}>
+          <div
+            className="rounded shadow-md w-full h-full"
+          >
+            <div className="w-full h-full rounded shadow-inner"
+              style={style(card.state, game.cardSources[card.sourceIndex].url)}
+              onClick={
+                () => {
+                  if (card.state !== CardState.Removed) {
+                    game.state.type === 'Idle' ? props.beginGuess(index) : props.endGuess(index)
+                  }
                 }
               }
-            }
-          >
+            >
+            </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
+    </div>
   </div>
 }
 
