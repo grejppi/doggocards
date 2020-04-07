@@ -72,7 +72,6 @@ export class GameState {
   turnsWithRelativeTimestamps(): Array<Turn> {
     return this.turns.map(turn => {
       const timestamp = turn.timestamp - (this.startTime ?? 0)
-      console.log(this.startTime, turn.timestamp, turn.timestamp - (this.startTime ?? 0), timestamp)
       return { ...turn, timestamp }
     })
   }

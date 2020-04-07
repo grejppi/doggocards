@@ -5,13 +5,14 @@ import ScoreCard from './scorecard/ScoreCard';
 
 function App() {
   return (
-    <div className="App w-full flex flex-col h-screen">
+    <div className="App w-full h-screen">
       <Board />
       <ScoreCard />
-      <div className="flex-grow"></div>
-      <footer className="p-2">
-        Photos provided by <a href="https://dog.ceo/dog-api/" className="text-blue-600">dog.ceo Dog API</a>
-      </footer>
+      <div className="fixed bottom-0">
+        <footer className="p-2">
+          Photos provided by <a href="https://dog.ceo/dog-api/" className="text-blue-600">dog.ceo Dog API</a>
+        </footer>
+      </div>
     </div>
   );
 }

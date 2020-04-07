@@ -35,16 +35,12 @@ const style = (state: CardState, image: string) => {
 
 const Board = (props: any) => {
   const game: GameState = props.game
-  if (game.cards.length !== 0 && game.cards.every((card: Card) => card.state === CardState.Removed)) {
-    console.log(game.turnsWithRelativeTimestamps())
-  }
-
-  return <div className="fixed w-screen h-screen">
+  return <div className="fixed w-screen h-screen z-20">
     <div className="flex flex-row flex-wrap mx-auto  w-screen h-screen-w  sm:w-4x32 sm:h-4x32  lg:w-4x48 lg:h-4x48">
       {game.cards.map((card: Card, index: number) =>
         <div className="p-screen-relative sm:p-2  w-screen-quarter h-screen-w-quarter  sm:w-32 sm:h-32  lg:w-48 lg:h-48" key={`${index}:${card.sourceIndex}`}>
           <div
-            className="rounded shadow-md w-full h-full"
+            className="rounded shadow-md w-full h-full bg-gray-400"
           >
             <div className="w-full h-full rounded shadow-inner"
               style={style(card.state, game.cardSources[card.sourceIndex].url)}
